@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /** @var app\models\CargosSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Cargos';
+$this->title = 'CARGOS DE LA INSTITUCION';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cargos-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Cargos', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Nuevo Cargo', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -29,8 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'idcargos',
             'cargo',
             'detallecargo',
             [
