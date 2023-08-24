@@ -40,9 +40,9 @@ class Cargos extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idcargos' => 'Idcargos',
-            'cargo' => 'Cargo',
-            'detallecargo' => 'Detallecargo',
+            'idcargos' => 'CEDULA',
+            'cargo' => 'CARGO',
+            'detallecargo' => 'DETALLE ',
         ];
     }
 
