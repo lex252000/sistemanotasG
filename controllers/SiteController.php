@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\User;
 use app\models\RoleAccessRule;
+use app\models\Ies;
 
 class SiteController extends Controller
 {
@@ -94,8 +95,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-
-        return $this->render('index');
+        $institucion = Ies::find()->where(['id' => 1])->one();
+        if($institucion == null){
+            $institucion = 'No existe institucion';
+        }
+        return $this->render('index', [
+            'institucion' => $institucion
+        ]);
     }
 
     /** 
