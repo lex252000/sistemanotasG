@@ -7,38 +7,35 @@
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
-$this->title = 'Login';
+$this->title = 'UEFR LOGIN';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please fill out the following fields to login:</p>
-
-    <?php $form = ActiveForm::begin([
-        'id' => 'login-form',
-        'layout' => 'horizontal',
-        'fieldConfig' => [
-            'template' => "{label}\n{input}\n{error}",
-            'labelOptions' => ['class' => 'col-lg-1 col-form-label mr-lg-3'],
-            'inputOptions' => ['class' => 'col-lg-3 form-control'],
-            'errorOptions' => ['class' => 'col-lg-7 invalid-feedback'],
-        ],
-    ]); ?>
-
-<?= $form->field($model, 'username')->textInput() ?>
-<?= $form->field($model, 'password')->passwordInput() ?>
-
-        <div class="form-group">
-            <div class="offset-lg-1 col-lg-11">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-            </div>
-        </div>
-
-    <?php ActiveForm::end(); ?>
-
-    <div class="offset-lg-1" style="color:#999;">
-        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
+    <div class="text-center"> <!-- Centrar el título -->
+        <h1><?= Html::encode($this->title) ?></h1>
     </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-4">
+            <?php $form = ActiveForm::begin([
+                'id' => 'login-form',
+                'fieldConfig' => [
+                    'template' => "{label}\n{input}\n{error}",
+                    'labelOptions' => ['class' => 'col-form-label'],
+                    'inputOptions' => ['class' => 'form-control'],
+                    'errorOptions' => ['class' => 'invalid-feedback'],
+                ],
+            ]); ?>
+
+            <?= $form->field($model, 'username')->textInput(['placeholder' => 'Usuario']) ?>
+            <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Contraseña']) ?>
+
+            <div class="form-group">
+                <?= Html::submitButton('Iniciar sesión', ['class' => 'btn btn-primary btn-block', 'name' => 'login-button']) ?>
+            </div>
+
+            <?php ActiveForm::end(); ?>
+        </div>
+    </div>
+
 </div>

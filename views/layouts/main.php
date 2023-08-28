@@ -24,6 +24,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="stylesheet" href="<?= Yii::getAlias('@web/css/styles.css') ?>">
     <?php $this->head() ?>
 </head>
 <body class="d-flex flex-column h-100">
@@ -39,7 +40,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav ms-auto me-3 me-lg-4 px-4 px-lg-0 text-center'],
         'items' => [
-            ['label' => 'Principal', 'url' => ['/site/index']],
+         
             [
                 'label' => 'General', // Menú principal "General"
                 'items' => [
@@ -49,8 +50,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     ['label' => 'Asignaturas', 'url' => ['/Asignatura/index']],
                     ['label' => 'Pagaduria', 'url' => ['/Pagaduria/index']],
                     ['label' => 'Matriculacion', 'url' => ['/Matriculacion/index']],
+                    ['label' => 'Cargos', 'url' => ['/cargos/index']],
               
-                ],
+                ]
             ],
             
             [
@@ -59,8 +61,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     ['label' => 'Notas 1er Trimestre', 'url' => ['/aprovechamiento/trimestre1']],
                     ['label' => 'Notas 2do Trimestre', 'url' => ['/aprovechamiento/trimestre2']],
                     ['label' => 'Notas 3ro Trimestre', 'url' => ['/aprovechamiento/trimestre3']],
-                    ['label' => 'Reporte final', 'url' => ['/reportefinal/reportefinal']],
-                ],
+              
+                ]
          
         ],
         [
@@ -70,9 +72,18 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 ['label' => 'Comportamiento 2do Trimestre', 'url' => ['/comportamiento/trimestre2']],
                 ['label' => 'Comportamiento 3er Trimestre', 'url' => ['/comportamiento/trimestre3']],
              
-            ],
+            ]
      
     ],
+    [
+        'label' => 'Informe', // Menú principal "Informe"
+        'items' => [
+            ['label' => 'Reportes', 'url' => ['/Reportes/trimestre1']],
+
+         
+        ]
+ 
+],
 
             ['label' => 'Cargos', 'url' => ['/cargos/index']],
             !Yii::$app->user->isGuest ? [
@@ -83,8 +94,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     ['label' => 'Asignar roles', 'url' => ['/asignar-rol/index']],
                 ],
             ] : '',
-            ['label' => 'resetpassword', 'url' => ['/user/resetpassword']],
-            ['label' => 'cambiarpassword', 'url' => ['/user/changepassword']],
+   
             Yii::$app->user->isGuest
                 ? ['label' => 'Login', 'url' => ['/site/login']]
                 : '<li class="nav-item">'
@@ -135,14 +145,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     </div>
 </main>
 
-<footer id="footer" class="mt-auto py-3 bg-light">
-    <div class="container">
-        <div class="row text-muted">
-            <div class="col-md-6 text-center text-md-start">&copy; My Company <?= date('Y') ?></div>
-            <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
-        </div>
-    </div>
-</footer>
+
 
 <?php $this->endBody() ?>
 </body>
