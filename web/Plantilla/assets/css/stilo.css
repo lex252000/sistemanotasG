@@ -1,0 +1,93 @@
+/* Estilos para el menú */
+.menu-item {
+    position: relative;
+  }
+  
+  .menu-link {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #e90f0f;
+    transition: background-color 0.3s, color 0.3s;
+    border-bottom: 5px solid #d6f044;
+  }
+  
+  /* Efecto hover para resaltar cuando el mouse pase sobre un enlace */
+  .menu-link:hover {
+    background-color: #d6f044;
+  }
+  
+  /* Estilos para las letras más grandes */
+  .menu-link div {
+    font-size: 18px;
+  }
+  
+  /* Estilos para el ícono */
+  .menu-icon {
+    margin-right: 10px;
+  }
+  
+  /* Estilos para el menú desplegable */
+  .menu-sub {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    background-color: #fbfbfb;
+    color: #ddec37;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+  }
+  
+  .menu-item:hover .menu-sub {
+    display: block;
+  }
+  
+  /* Agregar scroll solo al menú principal */
+  .layout-menu.menu-vertical {
+    max-height: 100%; /* Altura máxima para el menú principal */
+    overflow-y:auto
+  }
+  
+  /* Estilos para el título del menú */
+  .menu-header {
+    margin: 10px 0;
+    padding: 10px 25px;
+    background-color: #d9f63a;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 1px solid black;
+  }
+  
+  /* Estilos para los submenús */
+  .menu-sub {
+    border-top: 1px solid #f2eeee;
+  }
+  .menu-header-text{
+    color: black;
+    font-size: 16px;
+  }
+  .menu-item{
+    background-color: #edf3ea;
+  }
+  .layout-container{
+    background: #d9f63a;
+}
+
+/* Estilos para el menú */
+.layout-menu.menu-vertical {
+    width: 280px; /* Ajusta el ancho del menú según tus preferencias */
+    background-color: black;
+  }
+  
+  /* Estilos para los elementos del menú */
+  .menu-item {
+    width: 100%; /* Ajusta el ancho de los elementos del menú al ancho del menú */
+  }
+
+/* Aumentar tamaño de elementos del submenú */
+.menu-sub .menu-link {
+    padding: 100px 30px; /* Ajusta el padding para hacer más grande el submenú */
+    border-bottom: 2px solid #d6f044; /* Ajusta el grosor del borde inferior */
+}

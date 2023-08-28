@@ -39,22 +39,52 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav ms-auto me-3 me-lg-4 px-4 px-lg-0 text-center'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            ['label' => 'Cargos', 'url' => ['/cargos/index']],
+            ['label' => 'Principal', 'url' => ['/site/index']],
+            [
+                'label' => 'General', // Menú principal "General"
+                'items' => [
+                    ['label' => 'Institución', 'url' => ['/institucion/index']],
+                    ['label' => 'Cursos', 'url' => ['/curso/index']],
+                    ['label' => 'Docentes', 'url' => ['/docente/index']],
+                    ['label' => 'Asignaturas', 'url' => ['/Asignatura/index']],
+                    ['label' => 'Pagaduria', 'url' => ['/Pagaduria/index']],
+                    ['label' => 'Matriculacion', 'url' => ['/Matriculacion/index']],
+              
+                ],
+            ],
+            
+            [
+                'label' => 'Aprovechamiento', // Menú principal "Aprovechamiento"
+                'items' => [
+                    ['label' => 'Notas 1er Trimestre', 'url' => ['/aprovechamiento/trimestre1']],
+                    ['label' => 'Notas 2do Trimestre', 'url' => ['/aprovechamiento/trimestre2']],
+                    ['label' => 'Notas 3ro Trimestre', 'url' => ['/aprovechamiento/trimestre3']],
+                    ['label' => 'Reporte final', 'url' => ['/reportefinal/reportefinal']],
+                ],
+         
+        ],
+        [
+            'label' => 'Conducta', // Menú principal "Conducta"
+            'items' => [
+                ['label' => 'Comportamiento 1er Trimestre', 'url' => ['/comportamiento/trimestre1']],
+                ['label' => 'Comportamiento 2do Trimestre', 'url' => ['/comportamiento/trimestre2']],
+                ['label' => 'Comportamiento 3er Trimestre', 'url' => ['/comportamiento/trimestre3']],
+             
+            ],
+     
+    ],
 
-            !Yii::$app->user->isGuest? //si esta logueado mostrar lo siguiente
-                [
-                    'label' => 'Usuario',
-                    'items' => [
-                        ['label' => 'Usuarios', 'url' => ['/user/index']],
-                        ['label' => 'Roles', 'url' => ['/rol/index']],
-                        ['label' => 'Asignar roles', 'url' => ['/asignar-rol/index']],
-                    ]
-                ]:'',
-                ['label' => 'resetpassword', 'url' => ['/user/resetpassword']],
-                ['label' => 'cambiarpassword', 'url' => ['/user/changepassword']],
+            ['label' => 'Cargos', 'url' => ['/cargos/index']],
+            !Yii::$app->user->isGuest ? [
+                'label' => 'Usuario',
+                'items' => [
+                    ['label' => 'Usuarios', 'url' => ['/user/index']],
+                    ['label' => 'Roles', 'url' => ['/rol/index']],
+                    ['label' => 'Asignar roles', 'url' => ['/asignar-rol/index']],
+                ],
+            ] : '',
+            ['label' => 'resetpassword', 'url' => ['/user/resetpassword']],
+            ['label' => 'cambiarpassword', 'url' => ['/user/changepassword']],
             Yii::$app->user->isGuest
                 ? ['label' => 'Login', 'url' => ['/site/login']]
                 : '<li class="nav-item">'
@@ -64,10 +94,13 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                         ['class' => 'nav-link btn btn-link logout']
                     )
                     . Html::endForm()
-                    . '</li>'
-        ]
+                    . '</li>',
+        ],
     ]);
     NavBar::end();
+    ?>
+    </header>
+    
     ?>
 </header>
 
