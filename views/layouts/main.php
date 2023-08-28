@@ -85,16 +85,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
  
 ],
 
-            ['label' => 'Cargos', 'url' => ['/cargos/index']],
-            !Yii::$app->user->isGuest ? [
-                'label' => 'Usuario',
-                'items' => [
-                    ['label' => 'Usuarios', 'url' => ['/user/index']],
-                    ['label' => 'Roles', 'url' => ['/rol/index']],
-                    ['label' => 'Asignar roles', 'url' => ['/asignar-rol/index']],
-                ],
-            ] : '',
-   
+
             Yii::$app->user->isGuest
                 ? ['label' => 'Login', 'url' => ['/site/login']]
                 : '<li class="nav-item">'
