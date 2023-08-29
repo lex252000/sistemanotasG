@@ -11,7 +11,6 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\User;
 use app\models\RoleAccessRule;
-use app\models\Ies;
 
 class SiteController extends Controller
 {
@@ -95,13 +94,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $institucion = Ies::find()->where(['id' => 1])->one();
-        if($institucion == null){
-            $institucion = 'No existe institucion';
-        }
-        return $this->render('index', [
-            'institucion' => $institucion
-        ]);
+
+        return $this->render('index');
     }
 
     /** 
@@ -131,7 +125,9 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post()) ) {
             if($model->login()){
+
                 Yii::$app->session->set('userId', Yii::$app->user->identity->id);
+                //Yii::$app->session->set('rolesNames', $model->roles());
                 return $this->goBack();
             }else{
                 return $this->render('login', [
@@ -156,6 +152,8 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
+        Yii::$app->cache->delete('userRoleNames_' . Yii::$app->user->id);
+        Yii::$app->cache->delete('RolesOlyNameList_' . Yii::$app->user->id);
         Yii::$app->user->logout();
 
         return $this->goHome();
